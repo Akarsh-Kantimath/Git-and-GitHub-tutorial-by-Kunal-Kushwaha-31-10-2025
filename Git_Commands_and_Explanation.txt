@@ -252,3 +252,13 @@ git log
 36. to remove the commits, file changes without the stash, we can use hard command
 git reset --hard 6bc4d8bf8ac5e434ac9083e1c01210e42f2a762c
 
+===================================================================================
+37. to change the branch name from master to main
+change the branch name locally
+git branch -m master main
+now, push new branch to remote repository and set the upstream
+git push -u origin main
+in the remote set default branch as main, by going through repository settings
+then, in the locally delete the master branch by
+git push origin --delete master
+====================================================================================
