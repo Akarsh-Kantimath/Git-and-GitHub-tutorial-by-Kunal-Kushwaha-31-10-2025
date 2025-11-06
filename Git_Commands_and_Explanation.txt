@@ -1,0 +1,254 @@
+Git and GitHub Tutorial - youtube - Kunal Kushwaha - 16/10/2025
+
+Repository - It's a folder where all the changes of code are saved.
+
+GUI - GitLab, BitBucket, GitHub - Version control tool
+
+To download - go to git-scm.com download based on the operating system Linux, Windows or Mac
+
+In my Windows I have installed Git Bash App to use the Git command prompt
+
+1. ls  listing all the folder files
+
+2. cd..  go back one previous folder
+
+3. On reaching just / --> now, if you want to change the directory from C: to D: drive, write D: and press Enter command, now you are in D: drive
+
+4. If you want to create a folder use a command mkdir foldername (mkdir refers to make directory)
+
+5. To start having recording history to the folder, we must initiate git by using command git init ( You will receive a response as Initialized empty Git repository in D:/project_git_learn/.git/ )
+
+6. Now, if you try to list the folders, you can't see the anything --> to see the hidden files ( example file name which starts with . ) use ls -a --> Now, you will see the file names such as ./  ../  .git/
+
+7. to create a file touch command is used, it's a linux command example touch git statusnames.txt
+
+8. to check the status git status is used
+
+9. to delete or remove unwanted file, you can use rm -rf file name example rm -rf names2.txt
+
+10. when you check git status in red colour untracked file will be displayed. Now, to have them as a tracked file 
+git add . (it will add all the files listed in the red colour from git status)
+if you don't want to add all, wish to add selective files then git add names.txt (you can add selective files names)
+
+11. on checking the git status again, tracked files will be changed from red to green colour
+
+12. now that they are in green colour you want to save the changes you have made, for that 
+git commit -m "names.txt file added"  ( can be used -m refers to message of the commit )
+git commit -m "names.txt file added"
+[master (root-commit) 1f0a0c3] names.txt file added
+ 1 file changed, 0 insertions(+), 0 deletions(-)  //0 insertions(+), 0 deletions(-) --> zero code changes are done and zero code delection is done.
+ create mode 100644 names.txt
+
+
+13. If no changes are made any where then on git status below message is displayed.
+On branch master
+nothing to commit, working tree clean ( is displayed)
+
+14. to enter into .txt file from git bash and write some text and  save & quit steps
+14.1 use vi names.txt
+14.2 write some text inside the file
+14.3 to save and quit, first click Esc button and in the below left corner type :wq or :x and click on Enter button to save it.
+
+15. to see what is written inside the .txt folder, we can use the command
+cat names.txt  ( it will display the contents present inside the .txt file )
+
+16. Once you add to git using git add .  and didn't commit 
+Wish to not to add changes to staging, we can go back by not saving to staging using command
+git restore --staged names.txt ( it will not bring changes to staging env. it remains in modified: names.txt in red colour on checking git status )
+
+17. to the previous commit history
+git log is used 
+Example:
+$ git log
+commit d43c6551e6cd10fdabf36a8330de514ff3f80d23 (HEAD -> master)
+Author: Akarsh Kantimath <akarshkantimath@gmail.com>
+Date:   Thu Oct 16 20:56:04 2025 +0530  //+0530 is the Indian time zone 
+
+    names.txt file is modified
+
+commit 1f0a0c3c3f67cf785e063cefe34861a7d7ea9e0f
+Author: Akarsh Kantimath <akarshkantimath@gmail.com>
+Date:   Thu Oct 16 19:38:46 2025 +0530
+
+    names.txt file added
+
+
+18. command clear is used to clean the git bash display screen of previous commands.
+
+19. to go back to the previous commit
+git reset 1f0a0c3c3f67cf785e063cefe34861a7d7ea9e0f
+1f0a0c3c3f67cf785e063cefe34861a7d7ea9e0f ( commit index value )
+
+20. Now, you made changes to the project but don't want to make commit to create a history of changes but, whenever you need you want to get those changes to your project. In this case stash is used
+To use the stash get the changes to stage env. then use git stash
+( from point 19 you will reset to previous commit, then make changes to repository get them to staging then you can stash them )
+
+21. git stash pop 
+It's a command used get the stash changes to unstaged areas
+git stash pop
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   houses.txt
+        new file:   surname.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    names.txt
+
+
+22. If you don't want any stash changes then by using command 
+git stash clear (now, stash changes are gone)
+
+23. How to attach the GitHub repository to the local machine gitBash, By using command
+git remote add origin https://github.com/Akarsh-Kantimath/Git-and-GitHub-tutorial-by-Kunal-Kushwaha-31-10-2025.git
+https:// link is received from GitHub once creating the new repository
+
+24. To know what all links attached to the folder of local machine, We can use the command
+git remote -v
+origin  https://github.com/Akarsh-Kantimath/Git-and-GitHub-tutorial-by-Kunal-Kushwaha-31-10-2025.git (fetch)
+origin  https://github.com/Akarsh-Kantimath/Git-and-GitHub-tutorial-by-Kunal-Kushwaha-31-10-2025.git (push)
+
+25. To push the changes to GitHub repository, command 
+git push origin master 
+is used
+
+26. To create a new branch 
+git branch feature 
+is used feature is a branch name
+
+27. To point HEAD to branch 
+git checkout feature 
+command is used, HEAD refers to the branch to which changes we want to apply - if we want to add changes to master branch then we can use the command as 
+git checkout master
+now, to the master branch HEAD is pointed and changes are applied to master branch
+
+28. now, for the new feature approval is received wish to merge it to the main branch 
+git merge feature command is used
+
+29. to push commit stag changes to the GitHub command
+git push origin master 
+is used, master is a branch name
+
+30. in GitHub in order to contribute to a project, initially we must fork the project 
+on choosing GitHub account forked project will be present in your profile GitHub repository
+
+31. to contribute to any project upon fork 
+now, that you can access the contents of the public repository
+you can add upstream url of the project to your profile in gitbash using command
+git remote add upstream https://github.com/kunal-kushwaha/DSA-Bootcamp-Java.git   (this upstream url must be real public repository url ex. above one is of Kunal-Kushwaha profile)
+on
+$ git remote -v
+origin  https://github.com/Akarsh-Kantimath/DSA-Bootcamp-Java.git (fetch)
+origin  https://github.com/Akarsh-Kantimath/DSA-Bootcamp-Java.git (push)
+upstream        https://github.com/kunal-kushwaha/DSA-Bootcamp-Java.git (fetch)
+upstream        https://github.com/kunal-kushwaha/DSA-Bootcamp-Java.git (push)
+
+32. Imp. for every feature, bug or new thing --> always open a new branch
+on other words one branch to have one pull request to have distribution of the work separately, 
+It reduces the multiple pull request creation for each branch -> It helps in the review
+
+33. How to remove a commit history from GitHub repository
+touch names.txt
+git add .
+git commit -m "names.txt added"
+git push origin Akarsh
+git log
+	commit c827dc3d6e336acd7d45c9c6621468f2f7c9a409 (HEAD -> Akarsh, 	origin/Akarsh)
+	Author: Akarsh Kantimath <akarshkantimath@gmail.com>
+	Date:   Mon Nov 3 15:39:07 2025 +0530
+
+    	names.txt added
+	(now, the head is pointed to Akarsh branch)
+
+	commit 78bf8c72c8d01c18a2316f6ca2eba00e3a869fd3
+	Author: Akarsh Kantimath <akarshkantimath@gmail.com>
+	Date:   Mon Nov 3 14:58:25 2025 +0530
+
+    	Akarsh added a message
+
+	commit 6bc4d8bf8ac5e434ac9083e1c01210e42f2a762c (origin/main, 	origin/HEAD, main)
+	Author: Kunal Kushwaha <kunalkushwaha453@gmail.com>
+	Date:   Sun Aug 18 09:21:55 2024 +0100
+
+    	Update README.md
+
+git reset 78bf8c72c8d01c18a2316f6ca2eba00e3a869fd3
+git status
+	On branch Akarsh
+	Untracked files:
+  	(use "git add <file>..." to include in what will be committed)
+        	names.txt
+git add .
+git stash
+git log
+	commit 78bf8c72c8d01c18a2316f6ca2eba00e3a869fd3 (HEAD -> Akarsh)
+	Author: Akarsh Kantimath <akarshkantimath@gmail.com>
+	Date:   Mon Nov 3 14:58:25 2025 +0530
+
+    	Akarsh added a message
+
+	commit 6bc4d8bf8ac5e434ac9083e1c01210e42f2a762c (origin/main, 	origin/HEAD, main)
+	Author: Kunal Kushwaha <kunalkushwaha453@gmail.com>
+	Date:   Sun Aug 18 09:21:55 2024 +0100
+
+    	Update README.md
+Now, to remove the commit history from GitHub completely command 
+git push origin Akarsh -f 
+is used, -f refers to the forceful removal of commit
+
+34. How to sync with main branch of upstream with my own fork branch main
+way 1: in GitHub you can click on Fetch upstream button
+--------------------
+way 2: Manually syncing with upstream branch
+git checkout main
+git fetch --all --prune 
+(to my local machine all the upstream changes are received)
+(--prune refers to changes which are deleted as well are fetched)
+git reset --hard upstream/main
+git log
+git push origin main
+(from local machine upstream changes are pushed to GitHub online)   
+---------------------
+way 3: different command similar to way 2 manual sync
+git pull upstream main 
+(to my local machine all the upstream changes are received)
+git push origin main
+(from local machine upstream changes are pushed to GitHub online)  
+
+35. Squashing commits in Git means combining multiple commit entries into a single, clean commit.
+way 1: through reset command 
+git reset 6bc4d8bf8ac5e434ac9083e1c01210e42f2a762c
+git status
+On branch temp
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.txt
+        2.txt
+        3.txt
+git add .
+git commit -m "added 1, 2, 3.txt"
+-------------------------------
+way2: through rebase command
+git rebase -i 6bc4d8bf8ac5e434ac9083e1c01210e42f2a762c
+(here -i refers to inter-active environment)
+there in the interactive environment  
+by using i (to insert)
+you can either pick or s (squash) the commits
+pick 3738hf9
+s 448hfu9
+s 482hh72
+pick 8493hfw
+first three will be merged to pick 3738hf9 as one commit
+pick 8493hfw as a other commit
+Esc key :x enter button 
+again in inter-active environment 
+by using i (to insert)
+you can type a message of the commit 
+Esc key :x enter button 
+git log
+
+36. to remove the commits, file changes without the stash, we can use hard command
+git reset --hard 6bc4d8bf8ac5e434ac9083e1c01210e42f2a762c
+
