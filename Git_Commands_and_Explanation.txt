@@ -262,3 +262,12 @@ in the remote set default branch as main, by going through repository settings
 then, in the locally delete the master branch by
 git push origin --delete master
 ====================================================================================
+38. to rename a file 
+local machine
+mv old_filename new_filename
+
+for a git
+git mv old_filename new_filename
+git commit -m "Renamed file from old_filename to new_filename"
+git push origin branch_name
+
