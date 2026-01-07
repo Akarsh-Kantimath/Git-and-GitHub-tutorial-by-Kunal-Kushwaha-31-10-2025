@@ -270,4 +270,12 @@ for a git
 git mv old_filename new_filename
 git commit -m "Renamed file from old_filename to new_filename"
 git push origin branch_name
+=======================================================================================
+39. to go back to previous commit
+git reset --hard <commit-hash>     if you have to use --soft, keeps the changes staged. In case of hard changes are removed from local
+git push --force 
+Reset rewrites history by moving the branch pointer
 
+There is also revert - safely undoes commits via new commits, and checkout switches states or restores files. Adds new undo commit
+git revert <commit-hash>
+git push origin <branch> 
